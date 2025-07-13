@@ -5,9 +5,7 @@ namespace HireLog.Models;
 public class Job{
     public int Id { get; set; } // Primary Key
     public int Offer { get; set; } // Foreign Key
-
-    public DateTime ApplicationDate { get; set; }
-    public string? ApplicationLink { get; set; }
+    public int ApplicationDetails { get; set; } // Foreign Key
 
     [Required]
     public string? Position { get; set; }
