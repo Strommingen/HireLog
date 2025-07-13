@@ -29,3 +29,26 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.applicationform {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  /* background-color: #f1f1f1; */
+}
