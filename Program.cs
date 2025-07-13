@@ -1,8 +1,13 @@
+using HireLog.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+string dbConnectionString = builder.Configuration.GetConnectionString("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(dbConnectionString));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,10 +1,14 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HireLog.Models;
+namespace HireLog.Data.Models;
 
 public class Job{
+    [Key]
     public int Id { get; set; } // Primary Key
+    [ForeignKey("Offer")]
     public int Offer { get; set; } // Foreign Key
+    [ForeignKey("ApplicationDetails")]
     public int ApplicationDetails { get; set; } // Foreign Key
 
     [Required]

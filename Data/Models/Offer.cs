@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HireLog.Models;
+namespace HireLog.Data.Models;
 
 public class Offer
 {
-    public int ID { get; set; }
+    [Key]
+    public int Id { get; set; }
     public int Pay { get; set; }
     public DateTime StartDate { get; set; }
 }

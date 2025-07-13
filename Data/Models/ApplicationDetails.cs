@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HireLog.Models;
+namespace HireLog.Data.Models;
 
 public class ApplicationDetails
 {
-    public int ID { get; set; }
+    [Key]
+    public int Id { get; set; }
     [Required]
     public DateTime ApplicationDate { get; set; }
     public string? ApplicationLink { get; set; }
