@@ -1,3 +1,4 @@
+using HireLog.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,8 +13,23 @@ public class ApplicationsModel : PageModel
         _logger = logger;
     }
 
+    [BindProperty]
+    public JobState JobState { get; set; }
+    [BindProperty]
+    public string Position { get; set; }
+    [BindProperty]
+    public string Company { get; set; }
+    [BindProperty]
+    public string Letter { get; set; }
+    
     public void OnGet()
     {
+    }
+
+    public void OnPost()
+    {
+        _logger.LogInformation("JobState: {JobState}, Position: {Position}, Company: {Company}, Letter: {Letter}",
+        JobState, Position, Company, Letter);
     }
 }
 

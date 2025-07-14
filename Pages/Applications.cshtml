@@ -1,5 +1,6 @@
 @page
-@model IndexModel
+@model ApplicationsModel
+@using HireLog.Data.Models
 @{
     ViewData["Title"] = "Applications";
 }
@@ -10,12 +11,21 @@
     <p>All your applications will be displayed here</p>
     <p>Applied for a new job?</p>
     <button type="button" class="collapsible">Add the application to the Hire Log</button>
-    <div class="applicationform">
-        <form>
+    <div class="applicationform-div">
+        <form method="post">
             <label for="position">Position</label><br>
             <input type="text" id="position" name="position"><br>
             <label for="company">Company</label><br>
             <input type="text" id="company" name="company"><br>
+
+            @* <input type="radio" id="state" name="state"><br> *@
+            @foreach (var state in Enum.GetValues(typeof(JobState))){
+                var id = $"jobstate_{state}";
+
+                @Html.RadioButtonFor(m => m.JobState, state, new {id = id})
+                <label for="@id">@state</label>
+            }
+
             <label for="letter">Personal Letter</label><br>
             <input type="text" id="letter" name="letter"><br><br>
 

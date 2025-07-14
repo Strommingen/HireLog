@@ -46,7 +46,7 @@ body {
   background-color: #ccc;
 }
 
-.applicationform {
+.applicationform-div {
   padding: 0 18px;
   display: none;
   overflow: hidden;
