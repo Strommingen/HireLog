@@ -1,4 +1,5 @@
 using HireLog.Data;
+using DotNetEnv;
 using HireLog.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
 
-string dbConnectionString = builder.Configuration.GetConnectionString("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
+DotNetEnv.Env.Load();
+var connectionString = Environment.GetEnvironmentVariable("ConnectionStringDB"); // load connectionstring from .env file
+
+string dbConnectionString = builder.Configuration.GetConnectionString(connectionString);
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(dbConnectionString));
 builder.Services.AddScoped<ApplicationRepository>();
 var app = builder.Build();
