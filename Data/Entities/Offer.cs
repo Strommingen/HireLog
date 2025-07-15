@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HireLog.Data.Models;
+namespace HireLog.Data.Entities;
 
 public class Offer
 {

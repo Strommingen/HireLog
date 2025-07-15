@@ -1,7 +1,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using HireLog.Data.Models;
+using HireLog.Data.Entities;
+using HireLog.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 
@@ -10,12 +11,18 @@ namespace HireLog.Controllers {
     [Route("api/[controller]")]
     public class ApplicationController : ControllerBase
     {
+        private readonly ApplicationRepository _applicationRepository;
 
+        public ApplicationController(ApplicationRepository applicationRepository)
+        {
+            _applicationRepository = applicationRepository;
+        }
 
         [HttpGet]
-        public string Get()
+        public ActionResult<List<Application>> Get()
         {
-            return "TEMP";
+            return Ok(_applicationRepository.GetAll().ToList());
+            
         }
         [HttpGet("{ID}")]
         public string GetByID(int ID)

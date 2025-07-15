@@ -1,6 +1,8 @@
 @page
-@model ApplicationsModel
-@using HireLog.Data.Models
+@model HireLog.Pages.ApplicationsModel
+@using HireLog.Data.Entities
+@using HireLog.Controllers
+@using HireLog.Services
 @{
     ViewData["Title"] = "Applications";
 }
@@ -31,6 +33,14 @@
 
             <input type="submit" value="Submit">
         </form>
+    </div>
+
+    <div>
+        <ul>
+            @foreach (var application in Model.Applications){
+                <li>@application.Position application @application.Company @application.State</li>
+            }
+        </ul>
     </div>
 </div>
 

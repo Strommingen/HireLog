@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HireLog.Data.Models;
+namespace HireLog.Data.Entities;
 
 public class Application{
     [Key]

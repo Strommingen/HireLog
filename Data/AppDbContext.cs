@@ -1,4 +1,4 @@
-using HireLog.Data.Models;
+using HireLog.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace HireLog.Data
