@@ -10,7 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
 
 DotNetEnv.Env.Load();
-var connectionString = Environment.GetEnvironmentVariable("ConnectionStringDB"); // load connectionstring from .env file
+var connectionString = Environment.GetEnvironmentVariable("ConnectionString__DB"); // load connectionstring from .env file
 
 string dbConnectionString = builder.Configuration.GetConnectionString(connectionString);
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(dbConnectionString));
