@@ -11,6 +11,7 @@ public class Application{
     public string? Letter { get; set; }
 
     [Required]
+    public string? CV { get; set; }
     public string? Position { get; set; }
     [Required]
     public string? Company { get; set; }

@@ -11,14 +11,15 @@
     <h1 class="display-4">@ViewData["Title"]</h1>
 
     <p>All your applications will be displayed here</p>
-    <p>Applied for a new job?</p>
-    <button type="button" class="collapsible">Add the application to the Hire Log</button>
+    <button type="button" class="collapsible">Applied for a new job?</button>
     <div class="applicationform-div">
         <form method="post">
-            <label for="position">Position</label><br>
+            <label for="position">Position*</label><br>
             <input type="text" id="position" name="position"><br>
-            <label for="company">Company</label><br>
+            <label for="company">Company*</label><br>
             <input type="text" id="company" name="company"><br>
+            <label for="date">Application Date</label><br>
+            <input type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" id="date" name="date"><br>
 
             @* <input type="radio" id="state" name="state"><br> *@
             @foreach (var state in Enum.GetValues(typeof(JobState))){
@@ -27,9 +28,13 @@
                 @Html.RadioButtonFor(m => m.JobState, state, new {id = id})
                 <label for="@id">@state</label>
             }
-
+            <br>
             <label for="letter">Personal Letter</label><br>
-            <input type="text" id="letter" name="letter"><br><br>
+            <input type="file" id="letter" name="letter" accept=".pdf,.doc,.docx,.txt"><br>
+            <label for="cv">CV</label><br>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.txt"><br>
+            <label for="link">Link to the job description</label><br>
+            <input type="text" id="link" name="link"><br><br>
 
             <input type="submit" value="Submit">
         </form>
