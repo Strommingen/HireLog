@@ -12,7 +12,7 @@ public class ApplicationsModel : PageModel
     private readonly ILogger<ApplicationsModel> _logger;
     private readonly AppDbContext _context;
     private readonly HttpClient _httpClient;
-    public List<Application> Applications { get; set; } = new List<Application>();
+    public List<Application> Applications { get; set; }
     public ApplicationsModel(ILogger<ApplicationsModel> logger, AppDbContext context, IHttpClientFactory factory)
     {
         _logger = logger;
@@ -31,7 +31,7 @@ public class ApplicationsModel : PageModel
 
     public async Task OnGetAsync()
     {
-        var response = await _httpClient.GetAsync("https://localhost:7267/api/application");
+        var response = await _httpClient.GetAsync("http://localhost:5185/api/application");
         if (response.IsSuccessStatusCode)
         {
             var json = await response.Content.ReadAsStringAsync();

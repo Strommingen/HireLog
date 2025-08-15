@@ -8,12 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
+builder.Services.AddControllers();
 
 DotNetEnv.Env.Load();
 var connectionString = Environment.GetEnvironmentVariable("ConnectionString__DB"); // load connectionstring from .env file
+// var dbConnectionString = builder.Configuration.GetConnectionString(connectionString);
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
-string dbConnectionString = builder.Configuration.GetConnectionString(connectionString);
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(dbConnectionString));
 builder.Services.AddScoped<ApplicationRepository>();
 var app = builder.Build();
 
@@ -34,5 +35,7 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
+
+app.MapControllers();
 
 app.Run();

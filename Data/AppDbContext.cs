@@ -7,6 +7,6 @@ namespace HireLog.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         
-        public DbSet<Application> Jobs { get; set; }
+        public DbSet<Application> Applications { get; set; }
     }
 }
