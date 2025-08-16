@@ -7,14 +7,14 @@ public class Application{
     [Key]
     public Guid Id { get; set; } // Primary Key
     public DateTime ApplicationDate { get; set; }
-    public string? ApplicationLink { get; set; }
-    public string? Letter { get; set; }
+    public string ApplicationLink { get; set; } = string.Empty;
+    public Guid Letter { get; set; }
 
     [Required]
-    public string? CV { get; set; }
-    public string? Position { get; set; }
+    public Guid Cv { get; set; }
+    public string Position { get; set; } = string.Empty;
     [Required]
-    public string? Company { get; set; }
+    public string Company { get; set; } = string.Empty;
     [Required]
     public JobState State { get; set; }
 }
